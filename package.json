@@ -1,0 +1,16 @@
+{
+  "name": "rill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tronbox compile",
+    "deploy:test": "source .env && tronbox migrate --reset --network nile",
+    "deploy:prod": "source .env && tronbox migrate --reset --mainnet"
+  },
+  "author": "Nakama Studios",
+  "license": "ISC",
+  "devDependencies": {
+    "tronbox": "^2.7.25"
+  }
+}
