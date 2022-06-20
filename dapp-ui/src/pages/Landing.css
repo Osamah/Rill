@@ -1,0 +1,28 @@
+main {
+    width: 563px;
+    height: 4580px;
+    background-image: url('../static/images/mobile.png');
+    background-size: 100%;
+    margin: 0 auto;
+}
+
+
+@media screen and (min-width: 1080px) {
+    main {
+        width: 1080px;
+        height: 4580px;
+        background-image: url('../static/images/desktop.png');
+        position: relative;
+    }
+
+    a {
+        width: 130px;
+        height: 50px;
+        /* background-color: red;
+        opacity: 0.5; */
+        position: absolute;
+        top: 50px;
+        right: 60px;
+        cursor: pointer;
+    }
+}
