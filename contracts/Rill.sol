@@ -55,7 +55,6 @@ contract Rill is Owner {
    }
 
    uint256 public tournamentId;
-
    mapping (uint256 => Tournament) public tournaments;
 
    struct Bounty {
@@ -66,6 +65,9 @@ contract Rill is Owner {
        uint256 amount;
        bool collected;
    }
+
+   uint256 public bountyId;
+   mapping (uint256 => Bounty) public bounties;
 
    struct Team {
        string name;
@@ -151,7 +153,6 @@ contract Rill is Owner {
        return true;
    }
 
-
    /**
     * @dev Create a new Team
     *
@@ -192,6 +193,45 @@ contract Rill is Owner {
        return true;
    }
 
+   /**
+    * @dev Create new bounty
+    *
+    * Emits a `NewBounty` event.
+    */
+   function placeBounty(uint256 _tournamentId, address _player, uint256 _amount) public payable returns (bool) {
+        require(_msgValue() >= _amount, "Not enough funds sent");
+
+        Bounty memory bounty = Bounty(_tournamentId, _msgSender(), address(0), _player, _amount, false);
+        Tournament storage tournament = tournaments[_tournamentId];
+
+       bounties[bountyId] = bounty;
+       tournament.bountyIds.push(bountyId);
+
+       emit BountyPlaced(bountyId++, _tournamentId, _player, _amount);
+
+        return true;
+   }
+
+   /**
+    * @dev Collect a bounty
+    * 
+    * Emits a `BountyCollected` event.
+    */
+   function collectBounty(uint256 _bountyId, address _collector) public returns(bool success) {
+       require(isOwner(), "You are not authorised to handle bounty collections");
+      
+       Bounty storage bounty = bounties[_bountyId];
+
+       bounty.collected = true;
+       
+       _sendTRX(_collector, bounty.amount);
+
+       emit BountyCollected(_bountyId, _collector);
+
+       return true;
+   }
+
+
     function equals(Team storage _first, Team storage _second) internal view returns (bool) {
         return(keccak256(abi.encodePacked(_first.name, _first.players)) == keccak256(abi.encodePacked(_second.name, _second.players)));
     }
@@ -231,5 +271,17 @@ contract Rill is Owner {
     * Note `teamId` starts from 1
     */
    event PlayersAssignedToTeam(uint256 indexed teamId, address[] players);
+
+   /**
+    * @dev Emitted when a bounty is placed
+    * Note `bountyId` starts from 0
+    */
+   event BountyPlaced(uint256 indexed bountyId, uint256 tournamentId, address player, uint256 amount);
+
+   /**
+    * @dev Emitted when a bounty is collected
+    * 
+    */
+   event BountyCollected(uint256 indexed bountyId, address collector);
 
 }
