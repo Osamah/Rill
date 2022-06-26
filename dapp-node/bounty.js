@@ -6,6 +6,8 @@ const privateKey = '85abe7044e1dca89edcb495199d6fc491ae6a1c8fa5b61c99c96179329da
 const tronWeb = new TronWeb(fullNode, solidityNode, eventServer, privateKey);
 
 async function collectBounty() {
+    console.log(`Bounty will be collected`);
+
     const rillContractAddress = "TCcPwEQJTH4hkG5xTYmj7EpNdtqhHD3ZMT";
     let contract = await tronWeb.contract().at(rillContractAddress);
 
@@ -23,4 +25,8 @@ async function collectBounty() {
     return result;
 }
 
-collectBounty();
+// collectBounty();
+
+module.exports = {
+    collectBounty
+}

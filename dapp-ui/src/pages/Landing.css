@@ -4,6 +4,7 @@ main.landing {
     background-image: url('../static/images/mobile.png');
     background-size: 100%;
     margin: 0 auto;
+    position: relative;
 }
 
 
@@ -12,7 +13,6 @@ main.landing {
         width: 1080px;
         height: 4580px;
         background-image: url('../static/images/desktop.png');
-        position: relative;
     }
 
     main.landing a {

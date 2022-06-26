@@ -13,10 +13,8 @@ export function Landing() {
     }
 
     await setRillContract();
-    // navigate('/home', { replace: true });
-    navigate('/experiment');
     
-    console.log(await fetchTeams());
+    navigate('/experiment');
   }
 
   return (
