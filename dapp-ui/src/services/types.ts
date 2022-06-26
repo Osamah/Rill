@@ -30,6 +30,7 @@ interface RillContract {
     ) => Callback;
     createTeam: (
         name: string,
+        logo: string,
         players: string[]
     ) => Callback;
     assignPlayersToTeam: (

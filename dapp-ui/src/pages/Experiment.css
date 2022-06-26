@@ -1,0 +1,18 @@
+main.experiment {
+    
+}
+
+main.experiment a {
+    display: inline-block;
+    padding: 20px;
+    font-size: 16px;
+    background-color: #999;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+@media screen and (min-width: 1080px) {
+    main.experiment {
+        
+    }
+}

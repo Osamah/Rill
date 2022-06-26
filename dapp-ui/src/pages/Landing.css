@@ -15,7 +15,7 @@ main.landing {
         position: relative;
     }
 
-    a {
+    main.landing a {
         width: 130px;
         height: 50px;
         /* background-color: red;

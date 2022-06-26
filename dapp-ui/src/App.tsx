@@ -2,6 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import {Landing as LandingWIP} from './pages/Landing_';
 import {Landing} from './pages/Landing';
+import { Experiment } from "./pages/Experiment";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/experiment" element={<Experiment />} />
         <Route path="about" element={<About />} />
       </Routes>
     </div>

@@ -13,9 +13,9 @@ export function Landing() {
     }
 
     await setRillContract();
-    navigate('/home', { replace: true });
-    // await placeBounty();
-    // await createTeam();
+    // navigate('/home', { replace: true });
+    navigate('/experiment');
+    
     console.log(await fetchTeams());
   }
 
