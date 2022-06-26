@@ -1,4 +1,4 @@
-main {
+main.landing {
     width: 563px;
     height: 4580px;
     background-image: url('../static/images/mobile.png');
@@ -8,7 +8,7 @@ main {
 
 
 @media screen and (min-width: 1080px) {
-    main {
+    main.landing {
         width: 1080px;
         height: 4580px;
         background-image: url('../static/images/desktop.png');

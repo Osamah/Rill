@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "tronbox": "^2.7.25"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
   }
 }

@@ -1,12 +1,9 @@
-import React from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
 import {Landing as LandingWIP} from './pages/Landing_';
 import {Landing} from './pages/Landing';
 
 function App() {
-  // return <Landing />;
   return (
     <div className="">
       <Routes>

@@ -180,7 +180,7 @@ contract Rill is Owner {
     *
     * Emits a {PlayersAssignedToTeam} event.
     */
-   function AssignPlayersToTeam(
+   function assignPlayersToTeam(
        uint256 _teamId,
        address[] memory _players
     ) public returns (bool success) {
